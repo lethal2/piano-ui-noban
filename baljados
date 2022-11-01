@@ -1,5 +1,15 @@
--- fuck you gtx
+-- zf wanted this
+local lp = game:GetService("Players").LocalPlayer
 
+local blacklist = {
+	"zako125",
+	"evilsenate",
+	"RevenantAzraellius"
+}
+
+if table.find(blacklist, lp.Name) then
+	lp.Kick(lp, "nah")
+end
 
 local library = {}
 
@@ -111,10 +121,14 @@ function library.new(name)
 			ev.FireServer(ev,a:sub(7+#a:split(" ")[2]),"All")
 		end;
 		['ban'] = function()
-			print('nigga')
+			local ev = game.GetService(game,"ReplicatedStorage").Events.MenuActionEvent
+			print('banned')
+			ev.FireServer(ev,26)
 		end;
 		['softban'] = function()
-			print('softdick')
+			local ev = game.GetService(game,"ReplicatedStorage").Events.MenuActionEvent
+			print('softbanned')
+			ev.FireServer(ev,25)
 		end;
 		['identify'] = function(a,p)
 			for i = 1,3 do
